@@ -5,7 +5,7 @@ module.exports = {
     getUserAddress:(req,res) =>{
         User
         .find()
-        .populate("addresses", "addresses" -_id)
+        .populate("addresses", "addresses")
         .then((error,result)=>{
             if (error){
                 res.status(400).send({
