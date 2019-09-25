@@ -1,6 +1,6 @@
 {
   "name": "mongoose-express",
-  "version": "1",
+  "version": "0.0.1",
   "description": "latihan mongoose",
   "main": "index.js",
   "scripts": {
