@@ -99,9 +99,7 @@ module.exports = {
                             });
                             res.status(200).send({
                                 mesage:"user has been created",
-                                newUser,
-                                userPict,
-                                updateUser
+                                newUser
                             });
                         }
                     })
