@@ -10,7 +10,11 @@ var userSchema = new Schema(
         addresses:[{
             type: Schema.Types.ObjectId,
             ref:"addresses"
-        }]
+        }],
+        userImg:[{
+            type: Schema.Types.ObjectId,
+            ref:"userImage"
+        }],
     },
     {
         timestamps:true
