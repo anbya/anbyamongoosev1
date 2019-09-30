@@ -7,8 +7,8 @@ module.exports = {
     getAllContent:(req,res) =>{
         Content
         .find()
-        .populate("contentImages", "filename")
-        .populate("users", "name")
+        .populate("contentImages", "contentImages")
+        .populate("users", "users")
         .then((error,result)=>{
             if (error){
                 res.status(400).send({
