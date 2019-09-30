@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const db = require('./config/database')
 const userRouter = require("./routes/user")
 const addressRouter = require("./routes/address")
+const contentRouter = require("./routes/content")
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use("/user", userRouter);
 app.use("/address", addressRouter);
+app.use("/content", contentRouter);
 app.use(express.static("assets/images/"));
 db.then(() =>{
     console.log(`connected`);
