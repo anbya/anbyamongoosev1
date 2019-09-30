@@ -5,11 +5,7 @@ const ObjectID = require('mongodb').ObjectID;
 // const bcrypt = require("bcryptjs")
 module.exports = {
     getAllContent:(req,res) =>{
-        Content
-        .find()
-        .populate("contentImages", "contentImages")
-        .populate("users", "users")
-        .then((error,result)=>{
+        Content.find((error,result)=>{
             if (error){
                 res.status(400).send({
                     error
@@ -22,6 +18,24 @@ module.exports = {
             }
         });
     },
+    // getAllContent:(req,res) =>{
+    //     Content
+    //     .find()
+    //     .populate("contentImages", "contentImages")
+    //     .populate("users", "users")
+    //     .then((error,result)=>{
+    //         if (error){
+    //             res.status(400).send({
+    //                 error
+    //             });
+    //         }
+    //         else{
+    //             res.status(200).send({
+    //                 result
+    //             });
+    //         }
+    //     });
+    // },
     getOneContent:(req,res) =>{
         Content.findOne({_id: ObjectID(req.body.id)},(error,result)=>{
             if (error){
