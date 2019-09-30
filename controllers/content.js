@@ -12,7 +12,7 @@ module.exports = {
     getContentPopulate:(req,res) =>{
         Content
         .find()
-        .populate("contentImg", "contentimages")
+        .populate("contentImg", "path")
         .then((result)=>{
             res.status(200).send({
                 result
