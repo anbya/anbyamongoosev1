@@ -13,17 +13,14 @@ module.exports = {
         Content
         .find()
         .populate("contentImg", "contentimages")
-        .then((error,result)=>{
-            if (error){
-                res.status(400).send({
-                    error
-                });
-            }
-            else{
-                res.status(200).send({
-                    result
-                });
-            }
+        .then((result)=>{
+            res.status(200).send({
+                result
+            })
+        }).catch((error)=>{
+            res.status(400).send({
+                error
+            });
         });
     },
     // getAllContent:(req,res) =>{
