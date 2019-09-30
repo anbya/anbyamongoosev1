@@ -6,16 +6,7 @@ const ObjectID = require('mongodb').ObjectID;
 module.exports = {
     getAllContent:(req,res) =>{
         Content.find((error,result)=>{
-            if (error){
-                res.status(400).send({
-                    error
-                });
-            }
-            else{
-                res.status(200).send({
-                    result
-                });
-            }
+            res.status(200).send({result});
         });
     },
     // getAllContent:(req,res) =>{
