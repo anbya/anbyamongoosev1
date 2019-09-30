@@ -13,7 +13,7 @@ module.exports = {
         Content
         .find()
         .populate("contentImg", "contentimages")
-        .populate("contentUser", "users")
+        // .populate("contentUser", "users")
         .then((error,result)=>{
             if (error){
                 res.status(400).send({
