@@ -66,12 +66,12 @@ module.exports = {
                 path:`http://armyali.xyz/multer-image-upload/${req.files[0].filename}`
             });
             const updateContentImages = await Content.findOneAndUpdate(
-                {_id: content._id},
+                {_id: newcontent._id},
                 {$push: {contentImg: contentImage._id}},
                 {new:true}
             );
             const updateContentUser = await Content.findOneAndUpdate(
-                {_id: content._id},
+                {_id: newcontent._id},
                 {$push: {contentUser: req.body.userId}},
                 {new:true}
             );
