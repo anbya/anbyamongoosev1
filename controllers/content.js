@@ -5,7 +5,11 @@ const ObjectID = require('mongodb').ObjectID;
 // const bcrypt = require("bcryptjs")
 module.exports = {
     getAllContent:(req,res) =>{
-        Content.find((error,result)=>{
+        Content
+        .find()
+        .populate("contentImages", "filename")
+        .populate("users", "name")
+        .then((error,result)=>{
             if (error){
                 res.status(400).send({
                     error
@@ -54,7 +58,7 @@ module.exports = {
             });
             const contentImage = await ContentImage.create({
                 filename:req.files[0].filename,
-                path:`http://armyali.xyz/content-images/${req.files[0].filename}`
+                path:`http://armyali.xyz/multer-image-upload/${req.files[0].filename}`
             });
             const updateContentImages = await Content.findOneAndUpdate(
                 {_id: content._id},
