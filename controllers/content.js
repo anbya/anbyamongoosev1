@@ -12,8 +12,8 @@ module.exports = {
     getContentPopulate:(req,res) =>{
         Content
         .find()
-        .populate("contentImg", "contentimages-_id")
-        .populate("contentUser", "users-_id")
+        .populate("contentImg", "contentimages")
+        .populate("contentUser", "users")
         .then((error,result)=>{
             if (error){
                 res.status(400).send({
