@@ -7,7 +7,7 @@ var contentSchema = new Schema(
         content:String,
         contentImg:[{
             type: Schema.Types.ObjectId,
-            ref:"contentImages"
+            ref:"contentimages"
         }],
         contentUser:[{
             type: Schema.Types.ObjectId,
