@@ -9,6 +9,23 @@ module.exports = {
             res.send({result});
         });
     },
+    getContentPopulate:(req,res) =>{
+        Content
+        .find()
+        .populate("contentImages", "contentImages")
+        .then((error,result)=>{
+            if (error){
+                res.status(400).send({
+                    error
+                });
+            }
+            else{
+                res.status(200).send({
+                    result
+                });
+            }
+        });
+    },
     // getAllContent:(req,res) =>{
     //     Content
     //     .find()
