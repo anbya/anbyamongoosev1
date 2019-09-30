@@ -20,28 +20,8 @@ const storage = sftpStorage({
             fileType="jpg";
         }
         cb(null,file.originalname);
-        // cb(null,`http://armyali.xyz/multer-image-upload/${file.originalname}`);
     }
 });
-// const storage = multer.diskStorage({
-//     destination: function(req,file,cb){
-//         cb(null,"./assets/images/user/");
-//     },
-//     filename: function(req,file,cb){
-//         let fileType="";
-//         console.log(file);
-//         if (file.mimetype === "image/png"){
-//             fileType="png";
-//         }
-//         if (file.mimetype === "image/jpeg"){
-//             fileType="jpg";
-//         }
-//         //ini pakai nama asil si gambar
-//         cb(null,file.originalname);
-//         //ini kalau pakai nama baru
-//         // cb(null,`ininamafotobaru.${fileType}`);
-//     }
-// });
 
 const uploadContent=multer({storage:storage})
 

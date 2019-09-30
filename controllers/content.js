@@ -48,7 +48,10 @@ module.exports = {
     },
     addContent: async (req,res) => {
         try{
-            const content = await Content.create(req.body);
+            const newcontent = await Content.create({
+                headline:req.body.headline,
+                content:req.body.content
+            });
             const contentImage = await ContentImage.create({
                 filename:req.files[0].filename,
                 path:`http://armyali.xyz/content-images/${req.files[0].filename}`
@@ -65,7 +68,7 @@ module.exports = {
             );
             res.status(200).send({
                 mesage:"content has been created",
-                content,
+                newcontent,
                 contentImage,
                 updateContentImages,
                 updateContentUser
