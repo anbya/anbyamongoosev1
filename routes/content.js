@@ -4,11 +4,11 @@ const router = express.Router()
 
 const {getAllContent,getOneContent,updateContent,addContent} = require("../controllers/content")
 
-const upload=require("../config/multer")
+const uploadContent=require("../config/multercontent")
 
 router.get("/", getAllContent);
 router.get("/id", getOneContent);
 router.put("/", updateContent);
-router.post("/add-content", upload.any(),addContent);
+router.post("/add-content", uploadContent.any(),addContent);
 
 module.exports = router;

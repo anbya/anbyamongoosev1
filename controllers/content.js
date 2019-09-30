@@ -48,13 +48,10 @@ module.exports = {
     },
     addContent: async (req,res) => {
         try{
-            const content = await Content.create({
-                headline:req.body.name,
-                content:req.body.email
-            });
+            const content = await Content.create(req.body);
             const contentImage = await ContentImage.create({
                 filename:req.files[0].filename,
-                path:`http://armyali.xyz/multer-image-upload/${req.files[0].filename}`
+                path:`http://armyali.xyz/content-images/${req.files[0].filename}`
             });
             const updateContentImages = await Content.findOneAndUpdate(
                 {_id: content._id},
